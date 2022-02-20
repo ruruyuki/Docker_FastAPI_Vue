@@ -8,3 +8,6 @@ COPY ./backend/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 WORKDIR /app
+
+# FastAPIの起動
+CMD ["python3.9", "/app/main.py"]
