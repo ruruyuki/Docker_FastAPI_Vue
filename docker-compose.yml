@@ -11,7 +11,7 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./frontend/front:/app
+      - ./frontend/app:/app
     
   backend:
     container_name: backend
@@ -23,4 +23,4 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./backend/back:/app
+      - ./backend/app:/app
