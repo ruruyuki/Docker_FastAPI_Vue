@@ -14,8 +14,13 @@ app.add_middleware(
 
 
 @app.get("/api/hoge")
-def index():
-    return {"message": "Hello World"}
+def index1():
+    return {"message": "hogehoge"}
+
+
+@app.get("/api/fuga")
+def index2():
+    return {"message": "fugafuga"}
 
 
 # Dockerfileからuvicorn(FastAPIサーバー）を起動する

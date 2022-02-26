@@ -1,32 +1,32 @@
 <template>
   <div class="hello">
-    <h1>hogehoge {{ message }}</h1>
+    <h1>Hello World {{ message }}</h1>
   </div>
 </template>
 
 <script>
-
-import { axios } from '/app/plugins/axios'
+import { axios } from "/app/plugins/axios";
 
 export default {
-    components: {
+  components: {},
+  data() {
+    return {
+      message: "",
+    };
+  },
+  mounted() {
+    //get_hoge()の実行結果を変数messageに渡す
+    this.get_hoge().then((response) => {
+      this.message = response.data.message;
+    });
+  },
+  methods: {
+    //FastAPI(http://localhost:3000/api/hoge)にgetをリクエスト
+    get_hoge() {
+      return axios.get("api/fuga");
     },
-    data() {
-      return {
-        message : ''
-      }
-    },
-    mounted() {
-      this.get_hello().then((response) =>{
-        this.message = response.data.message
-      })
-    },
-    methods: {
-      get_hello() {
-        return axios.get('api/hoge')
-      }
-    },
-}
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
